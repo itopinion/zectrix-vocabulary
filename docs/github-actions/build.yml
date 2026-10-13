@@ -1,0 +1,30 @@
+name: Build candidate app
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  macos-arm64:
+    runs-on: macos-15
+    env:
+      CMAKE_POLICY_VERSION_MINIMUM: '3.5'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify target
+        run: test "$(uname -m)" = arm64
+      - name: Test
+        run: cargo test --locked
+      - name: Package
+        run: ./scripts/package-app.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zectrix-vocabulary-macos-aarch64-candidate
+          path: |
+            dist/*.zip
+            dist/*.sha256
+          if-no-files-found: error
+      # No model downloads, live device access, or automatic public Release.

@@ -1,0 +1,11 @@
+{
+  "id": "zectrix-vocabulary",
+  "name": "背单词",
+  "version": "0.2.0",
+  "api_version": 1,
+  "platforms": ["macos-aarch64"],
+  "entry": "bin/zectrix-vocabulary",
+  "capabilities": ["display", "keys", "recording", "audio", "speech"],
+  "description": "按教材和单元管理词库，在墨水屏上分开练习拼写与朗读，使用本地语音识别和示范声音。",
+  "files": {}
+}
