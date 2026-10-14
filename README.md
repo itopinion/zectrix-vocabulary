@@ -1,5 +1,7 @@
 # ZECTRIX 背单词
 
+**简体中文** | [English](README.en.md)
+
 运行于 ZECTRIX Hub 的本地背单词应用：在网页按教材和单元管理词库，把中文提示发送到设备，分别练习字母拼写和整词朗读，再播放标准答案示范。
 
 本应用不直接连接硬件；设备连接、应用切换和语音环境由独立的 **ZECTRIX Hub** 管理。首版应用包支持 Apple Silicon Mac，Windows、Linux 和群晖上的本地语音尚未适配。
@@ -13,7 +15,7 @@
 
 macOS 首次询问 `zectrix-hub` 的本地网络访问时，需要允许后才能连接设备。若网页可打开但设备连接失败，在“系统设置 → 隐私与安全性 → 本地网络”检查该权限，再回 Hub 重试。
 
-**固件不在本仓库或应用包内。** 请在电脑打开 [ZECTRIX Cloud](https://cloud.zectrix.com)，连接设备并按平台的 PC 端流程升级，再进入设备的本地推送模式。
+**设备要求：ZECTRIX Note 4，官方设备固件 3.7.0 及以上（≥3.7.0），并进入本地推送模式。** 升级请参考 [官方固件升级说明](https://wiki.zectrix.com/zh/software/firmware) 的 Note 4 部分，在电脑用 Chrome 或 Edge 登录极趣云的“本地升级”，通过 USB 连接并选择对应固件版本。Note 4 与 Note 4C 固件不可混刷，本应用不自动兼容 Note 4C。固件不在本仓库或应用包内。
 
 ## 使用
 
@@ -30,6 +32,12 @@ macOS 首次询问 `zectrix-hub` 的本地网络访问时，需要允许后才�
 词库、进度、合成缓存和日志位于 Hub 分配的 `app-data/zectrix-vocabulary/`，不会写回应用包。更新应用保留这些数据。识别和语音合成在本机执行；首次安装需要联网下载环境和模型。
 
 仓库不包含个人学习记录、真实排障录音、设备地址、模型权重或完整教材词库。诊断录音默认不持续留存；请勿将任何个人数据或录音提交到公开仓库。迁移旧实验版本前先备份，再通过网页导入词表，不覆盖现有数据目录。
+
+## Windows 与 NAS 开发适配
+
+应用的 Rust 业务逻辑和 Hub 接口可以复用，但当前 Mac 应用包不能直接跨平台运行。需为目标平台编译应用、生成对应 manifest，适配网页访问、语音安装和识别后端。当前 Qwen 识别依赖 Apple Silicon 的 MLX；仅更改应用包的平台名称无法完成移植。
+
+参阅 Hub 的 [中文适配指南](https://github.com/itopinion/zectrix-hub/blob/main/docs/PORTING.md) / [English porting guide](https://github.com/itopinion/zectrix-hub/blob/main/docs/PORTING.en.md)，其中标出了本仓库需修改的 `src/hub.rs`、`src/main.rs`、`src/speech.rs`、`workers/speech.py` 和打包脚本。
 
 ## 开发与打包
 

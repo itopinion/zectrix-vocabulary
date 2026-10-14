@@ -10,7 +10,7 @@
 
 CI 模板保存在 `docs/github-actions/`，当前授权不含工作流权限，暂未启用；启用后只构建与上传候选产物，不自动公开发布。平台标识 `macos-aarch64` 只覆盖 Apple Silicon Mac；不要把此应用包标为群晖或 Windows 兼容。
 
-固件统一通过 [ZECTRIX Cloud](https://cloud.zectrix.com) 的 PC 端连接设备升级。本应用不包含固件镜像或刷写操作。
+设备要求 Note 4 官方固件 **3.7.0 及以上（≥3.7.0）**。升级请参考 [官方固件说明](https://wiki.zectrix.com/zh/software/firmware) 的 Note 4 部分。本应用不包含固件镜像或刷写操作。
 
 ## 本地验证记录（2026-10-14）
 
