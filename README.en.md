@@ -6,6 +6,12 @@ A local vocabulary app for ZECTRIX Hub. Manage words by textbook and unit in a b
 
 Hub owns the hardware connection, app switching and shared speech environment. The current app package supports **Apple Silicon Macs**. Windows, Linux and Synology NAS speech ports are not yet implemented or verified.
 
+## Screen preview
+
+Application-rendered 400×300 reading example showing the word, phonetic transcription, Chinese meaning and button hints. This is not a device photograph or evidence of a human pronunciation test.
+
+![ZECTRIX Vocabulary — reading example](docs/previews/reading.png)
+
 ## Device requirements and installation
 
 **Requires ZECTRIX Note 4 with official device firmware 3.7.0 or later (≥3.7.0), in local push mode.** Follow the Note 4 section of the [official firmware upgrade guide](https://wiki.zectrix.com/zh/software/firmware) (Chinese). Use Chrome or Edge on a computer, sign in to the cloud platform, open **Local Upgrade / 本地升级**, connect with a USB data cable and select the correct firmware version. Note 4 and Note 4C firmware are not interchangeable. This app does not automatically support Note 4C and contains no firmware or flashing tools.

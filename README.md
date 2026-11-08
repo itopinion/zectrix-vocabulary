@@ -6,6 +6,12 @@
 
 本应用不直接连接硬件；设备连接、应用切换和语音环境由独立的 **ZECTRIX Hub** 管理。首版应用包支持 Apple Silicon Mac，Windows、Linux 和群晖上的本地语音尚未适配。
 
+## 界面预览
+
+下图为应用渲染的 400×300 单词朗读示例，展示英文、音标、中文和按键提示；不是设备实拍，也不代表真人发音测试结果。
+
+![ZECTRIX Vocabulary — reading example](docs/previews/reading.png)
+
 ## 安装
 
 1. 先[下载并启动 ZECTRIX Hub](https://github.com/itopinion/zectrix-hub/releases)，打开其本地管理界面，连接设备。
